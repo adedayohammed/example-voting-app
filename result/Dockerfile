@@ -18,6 +18,10 @@ RUN npm ci && \
 
 COPY . .
 
+RUN chown -R node:node /usr/local/app
+
+USER node
+
 ENV PORT=80
 EXPOSE 80
 

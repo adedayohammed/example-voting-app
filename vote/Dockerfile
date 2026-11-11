@@ -25,6 +25,10 @@ FROM base AS final
 # Copy our code from the current folder to the working directory inside the container
 COPY . .
 
+RUN useradd --create-home --shell /bin/bash appuser && \
+    chown -R appuser:appuser /app
+USER appuser
+
 # Make port 80 available for links and/or publish
 EXPOSE 80
 
